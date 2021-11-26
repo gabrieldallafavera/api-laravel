@@ -8,7 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Interfaces\User\IUserLogin;
 use App\Http\Interfaces\User\IUserLogout;
 use App\Http\Interfaces\User\IUserRegister;
-use Illuminate\Http\Request;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
 
@@ -31,15 +32,15 @@ class AuthController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param LoginRequest $request
      * @return Response
      */
-    public function login(Request $request): Response
+    public function login(LoginRequest $request): Response
     {
         try {
             return response(ResponseDataBuilder::buildWithData(
                 'Login Realizado',
-                $this->userLogin->login($request->validate())
+                $this->userLogin->login($request->validated())
             ), 202);
         } catch (CredentialWrongException) {
             return response(ResponseDataBuilder::buildWithoutData('Credenciais erradas'), 401);
@@ -62,13 +63,13 @@ class AuthController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param RegisterRequest $request
      * @return Response
      */
-    public function register(Request $request): Response
+    public function register(RegisterRequest $request): Response
     {
         try {
-            $fields = $request->validate();
+            $fields = $request->validated();
             Arr::set($fields, 'password', bcrypt($fields['password']));
             return response(ResponseDataBuilder::buildWithData(
                 'Cadastro realizado',
