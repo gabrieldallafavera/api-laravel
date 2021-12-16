@@ -61,6 +61,12 @@ This seeder creates auto insertions on the database, the name o the seeder can b
 
 The sail command allow to execute the project using docker
 
+### Configure PSR12 as default for php codesniffer
+
+> .\vendor\bin\phpcs --config-set default_standard PSR12
+
+Set PSR12 as default code
+
 ### Other informations about php artisan
 
 > php artisan list
