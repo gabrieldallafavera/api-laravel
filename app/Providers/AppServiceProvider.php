@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
     public function setUser()
     {
         $this->app->bind(IUserFind::class, UserFind::class);
-        $this->app->bind(IUserStore::Class, UserStore::class);
+        $this->app->bind(IUserStore::class, UserStore::class);
         $this->app->bind(IUserLogin::class, UserLoginService::class);
         $this->app->bind(IUserLogout::class, UserLogoutService::class);
         $this->app->bind(IUserRegister::class, UserRegisterService::class);

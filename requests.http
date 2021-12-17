@@ -1,0 +1,25 @@
+POST http://localhost:8000/api/login
+content-Type: application/json
+
+{
+    "email": "",
+    "password": ""
+}
+
+###
+
+POST http://localhost:8000/api/register
+Content-Type: application/json
+Authorization: Bearer xxx
+
+{
+    "name": "",
+    "email": "",
+    "password": "",
+    "password_confirmation": ""
+}
+
+###
+
+# POST http://localhost:8000/api/logout
+# Authorization: Bearer xxx

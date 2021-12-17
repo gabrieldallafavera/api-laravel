@@ -18,7 +18,6 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
-        "phan/phan": "^5.3",
         "phpunit/phpunit": "^9.5.10",
         "squizlabs/php_codesniffer": "*"
     },
